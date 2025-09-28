@@ -1,0 +1,2 @@
+class book(db.Model):
+    
