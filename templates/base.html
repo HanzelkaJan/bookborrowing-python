@@ -8,6 +8,33 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+        <table class="center-table">
+            <tr>
+                <td>
+                    <a href="/">Search/Borrow Books</a>
+                </td>
+                <td>
+                    <a href="/add">Add Book</a>
+                </td>
+                <td>
+                    <a href="/remove">Remove Book</a>
+                </td>
+                {% if session['username'] != Null %}
+                    <td>
+                        <a href="/dashboard">{{session['username']}}</a>
+                    </td>
+                    <td>
+                        <a href="/logout">Log Out</a>
+                    </td>
+                {% else %}
+                    <td>
+                        <a href="/loginpage">Log In</a>
+                    </td>
+
+                {% endif %}
+            </tr>
+        </table>
+
     {% block body %}{% endblock %}
 </body>
 </html>

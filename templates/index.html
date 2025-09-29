@@ -11,13 +11,27 @@
         <input type="text" name="searchbook" id="searchbook">
         <input type="submit" value="Search">
     </form>
-    {% for book in books %}
-        <tr>
-            <td>{{ book.isbn }}</td>
-            <td>{{ book.name }}</td>
-            <td>{{ book.author }}</td>
-        </tr>
-    {% endfor %}
+        <table>
+            <tr>
+                <th>ISBN</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Reserved</th>
+            </tr>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ 'Yes' if book.reserved else 'No' }}</td>
+                    {% if session['username'] %}
+                    <td>
+                        <a href="/borrow/{{book.id}}">Borrow</a>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
 </div>
 
 {% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Remove book</h1>
+    <form action="/remove" method="POST">
+        <input type="text" name="searchbook" id="searchbook">
+        <input type="submit" value="Search">
+    </form>
+    <table>
+        <tr>
+            <th>ISBN</th>
+            <th>Name</th>
+            <th>Author</th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.author }}</td>
+                <td>
+                    <a href="/remove/{{book.id}}">Remove</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

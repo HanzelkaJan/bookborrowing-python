@@ -16,12 +16,18 @@
         <input type="text" id="author" name="author"><br><br>
         <input type="submit" value="Submit">
     </form>
-    {% for book in books %}
-        <tr>
-            <td>{{ book.isbn }}</td>
-            <td>{{ book.name }}</td>
-            <td>{{ book.author }}</td>
-        </tr>
-    {% endfor %}
+    <table class="center-table">
+        <th>ISBN</th>
+        <th>Name</th>
+        <th>Author</th>
+
+        {% for book in books %}
+            <tr>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.author }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 {% endblock %}

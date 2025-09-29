@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+    <table class="center-table">
+            <tr>
+                <th>Book name</th>
+                <th>Due</th>
+                <th>Return</th>
+            </tr>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ Book.query.get(reservation.bookId).name }}</td>
+                    <td>{{ reservation.borrowedTo }}</td>
+                    <td>
+                        <a href="/return/{{reservation.id}}">Return</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}
